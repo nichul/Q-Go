@@ -1,0 +1,121 @@
+/* 전체 페이지와 바디 스타일 */
+html, body {
+    height: 100%; /* 전체 높이 설정 */
+    margin: 0; /* 기본 마진 제거 */
+    padding: 0; /* 기본 패딩 제거 */
+}
+
+/* Detail 컴포넌트에서만 스크롤 숨기기 */
+html.disable-scroll, body.disable-scroll {
+    overflow: hidden; /* 스크롤 숨기기 */
+}
+
+/* Detail 컴포넌트 스타일 */
+.Detail {
+    text-align: center;
+    margin-top: 60px; /* 헤더의 높이에 맞게 조정 (예: 60px) */
+    position: relative; /* 자식 요소의 절대 위치를 기준으로 설정 */
+    min-height: calc(100vh - 60px); /* 헤더 높이를 제외한 화면 전체 높이 */
+    padding-bottom: 100px; /* 버튼과의 간격을 확보 */
+}
+
+/* 헤더 스타일 */
+.Detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f8f8f8; /* 헤더 배경색 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* 헤더가 다른 요소 위에 있도록 설정 */
+}
+
+.Detail-header h1 {
+    font-size: 20px; /* 모바일 화면에 맞는 제목 글자 크기 */
+    margin: 0;
+}
+
+/* 버튼 스타일 */
+.goBackButton, .cartButton {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 8px 16px; /* 모바일 화면에 맞는 패딩 */
+    cursor: pointer;
+    border-radius: 5px; /* 버튼에 둥근 모서리 추가 */
+    font-size: 14px; /* 모바일 화면에 맞는 버튼 텍스트 크기 */
+}
+
+.goBackButton:hover, .cartButton:hover {
+    background-color: #ddd; /* 버튼에 호버 시 색상 변경 */
+}
+
+.Detail-image {
+    max-width: 90%; /* 모바일 화면에 맞게 이미지 너비 조정 */
+    height: auto;
+    max-height: 400px; /* 모바일 화면에 맞게 최대 높이 조정 */
+    border-radius: 5px;
+    margin-top: 10px; /* 이미지와 헤더 사이 간격 */
+}
+
+/* 텍스트 스타일 */
+.Detail-sashimi {
+    font-size: 16px; /* 모바일 화면에 맞는 폰트 크기 */
+    margin-top: 10px;
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+    margin-left: 10px; /* 왼쪽 여백 추가 */
+    margin-right: auto; /* 오른쪽 여백 자동으로 설정 */
+}
+
+.Detail-price {
+    font-size: 16px; /* 모바일 화면에 맞는 폰트 크기 */
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between; /* 왼쪽과 오른쪽 정렬 */
+    padding: 0 10px; /* 좌우 패딩 추가 */
+}
+
+.Detail-price .price-label {
+    text-align: left; /* 가격 레이블을 왼쪽 정렬 */
+    margin-right: auto; /* 왼쪽 여백을 자동으로 설정 */
+}
+
+.Detail-price .price-value {
+    text-align: right; /* 가격 값을 오른쪽 정렬 */
+    margin-left: auto; /* 오른쪽 여백을 자동으로 설정 */
+}
+
+/* 버튼 스타일 */
+.orderButton {
+    background-color: #f0c040;
+    border: none;
+    padding: 12px 20px; /* 모바일 화면에 맞게 패딩 조정 */
+    width: 90%; /* 모바일 화면에 맞게 너비 조정 */
+    cursor: pointer;
+    position: absolute; /* 버튼을 절대 위치로 설정 */
+    bottom: 30px; /* 화면 하단에서 30px 위로 설정 */
+    left: 50%; /* 화면의 중앙에 위치 */
+    background-color: black;
+    transform: translateX(-50%); /* 중앙 정렬 */
+    font-size: 16px; /* 버튼 텍스트 크기 조정 */
+}
+
+.orderButton:hover {
+    background-color: #e0b030; /* 버튼에 호버 시 색상 변경 */
+}
+
+/* 팝업 스타일 */
+.popup {
+    position: fixed; /* 메시지가 스크롤에 따라 이동하지 않도록 고정 */
+    top: 20px; /* 화면 상단에서 20px 떨어지게 설정 */
+    left: 50%; /* 화면 중앙에서 위치 조정 */
+    transform: translateX(-50%); /* 화면 중앙 정렬 */
+    background-color: black; /* 배경 색상 */
+    color: white; /* 글자 색상 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    padding: 10px 20px; /* 내부 여백 추가 */
+    font-size: 14px; /* 폰트 크기 */
+    z-index: 2000; /* 다른 요소보다 위에 보이도록 설정 */
+}

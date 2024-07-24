@@ -1,3 +1,4 @@
+// Cart.js
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
@@ -12,14 +13,17 @@ const Cart = ({ cartItems, onDeleteItem }) => {
   }, [cartItems]);
 
   const handleGoBack = () => {
-    navigate(-1);
+    navigate(-1); // 이전 페이지로 이동
   };
 
   const handleDeleteItem = (index) => {
-    console.log('Before Deletion:', items); // 상태 확인
     const updatedItems = items.filter((_, i) => i !== index);
     setItems(updatedItems);
     onDeleteItem(index); // 상위 컴포넌트의 onDeleteItem 호출
+  };
+
+  const handleOrderClick = () => {
+    navigate('/order'); // '/order' 경로로 이동
   };
 
   return (
@@ -52,6 +56,9 @@ const Cart = ({ cartItems, onDeleteItem }) => {
         ) : (
           <p>장바구니에 상품이 없습니다.</p>
         )}
+      </div>
+      <div className="cart-footer">
+        <button className="orderButton" onClick={handleOrderClick}>주문하기</button>
       </div>
     </div>
   );

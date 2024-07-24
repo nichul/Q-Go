@@ -4,29 +4,38 @@
     padding: 20px;
     max-width: 600px;
     margin: 0 auto;
+    padding-top: 60px; /* 헤더 높이만큼 여백 추가 */
+    position: relative; /* 내용이 헤더와 겹치지 않도록 설정 */
 }
 
 .cart-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+    position: fixed; /* 화면 상단에 고정 */
+    top: 0; /* 화면 상단에 위치 */
+    left: 0; /* 화면 왼쪽에 위치 */
+    width: 100%; /* 전체 너비 */
+    background-color: #fff; /* 배경색 */
+    border-bottom: 1px solid #ccc; /* 하단 테두리 */
+    padding: 10px 20px; /* 패딩 추가 */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* 하단 그림자 */
+    z-index: 1000; /* 다른 요소들 위에 위치하도록 설정 */
+    display: flex; /* 플렉스 레이아웃 사용 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
 }
 
 .cart-header h2 {
     margin: 0;
+    text-align: center; /* 텍스트 가운데 정렬 */
 }
 
 .header-buttons {
-    display: flex;
-    gap: 10px;
+    position: absolute; /* 헤더 내에서 버튼을 위치시키기 위해 절대 위치 사용 */
+    right: 20px; /* 오른쪽 여백 */
 }
 
 .goBackButton {
-    background-color: black; /* 파란색 배경 */
-    color: #fff; /* 흰색 텍스트 */
+    background-color: black; /* 배경색 */
+    color: #fff; /* 텍스트 색상 */
     border: none;
     padding: 8px 16px;
     font-size: 16px;
@@ -47,26 +56,26 @@
 .cart-item {
     position: relative;
     padding: 15px;
-    margin-bottom: 10px; /* 메뉴 항목 사이의 여백 추가 */
-    background-color: #fff; /* 각 항목의 배경 색상 */
-    border-radius: 13px; /* 각 항목의 모서리 둥글게 */
-    border: 1px solid rgb(222, 221, 221); /* 검은색 테두리 */
+    margin-bottom: 10px; /* 항목 사이의 여백 */
+    background-color: #fff; /* 항목 배경색 */
+    border-radius: 13px; /* 모서리 둥글게 */
+    border: 1px solid rgb(222, 221, 221); /* 테두리 색상 */
     box-shadow: none; /* 그림자 제거 */
-    min-height: 250px; /* 각 항목의 최소 높이 설정 */
+    min-height: 250px; /* 최소 높이 */
 }
 
 .cart-item-image {
-    position: absolute; /* 절대 위치 지정 */
-    top: 15px; /* 상단 여백 */
-    right: 15px; /* 오른쪽 여백 */
+    position: absolute;
+    top: 15px;
+    right: 15px;
     width: 60px;
     height: 60px;
     object-fit: cover;
-    border-radius: 5px; /* 이미지 둥글게 */
+    border-radius: 5px;
 }
 
 .cart-item-details {
-    padding-right: 80px; /* 이미지와 텍스트 사이의 여백 */
+    padding-right: 80px;
 }
 
 .cart-item-title {
@@ -78,19 +87,47 @@
 }
 
 .deleteButton {
-    position: absolute; /* 절대 위치 지정 */
-    bottom: 15px; /* 하단 여백 */
-    right: 15px; /* 오른쪽 여백 */
-    background-color: black; /* 빨간색 배경 */
-    color: #fff; /* 흰색 텍스트 */
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: black; /* 배경색 */
+    color: #fff; /* 텍스트 색상 */
     border: none;
     padding: 8px 16px;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 5px; /* 둥근 모서리 */
+    border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
 .deleteButton:hover {
+    background-color: #333; /* 호버 시 색상 변경 */
+}
+
+/* 주문하기 버튼 스타일 추가 */
+.cart-footer {
+    position: fixed; /* 화면 하단에 고정 */
+    bottom: 0; /* 화면 하단에 위치 */
+    left: 0; /* 화면 왼쪽에 위치 */
+    width: 100%; /* 전체 너비 */
+    background-color: #fff; /* 배경색 */
+    padding: 10px 20px; /* 패딩 추가 */
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1); /* 상단 그림자 */
+    display: flex; /* 플렉스 레이아웃 사용 */
+    justify-content: center; /* 가로 중앙 정렬 */
+}
+
+.orderButton {
+    background-color: black; /* 배경색 */
+    color: #fff; /* 텍스트 색상 */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.orderButton:hover {
     background-color: #333; /* 호버 시 색상 변경 */
 }

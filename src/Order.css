@@ -1,0 +1,112 @@
+/* 전체 페이지와 바디 스타일 */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Order 컴포넌트 스타일 */
+.Order {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding-top: 60px; /* 헤더 높이만큼 여백 추가 */
+    position: relative; /* 내용이 헤더와 겹치지 않도록 설정 */
+}
+
+/* 헤더 스타일 */
+.Order-header {
+    position: fixed; /* 화면 상단에 고정 */
+    top: 0; /* 화면 상단에 위치 */
+    left: 0; /* 화면 왼쪽에 위치 */
+    width: 100%; /* 전체 너비 */
+    background-color: #fff; /* 배경색 */
+    border-bottom: 1px solid #ccc; /* 하단 테두리 */
+    padding: 10px 20px; /* 패딩 추가 */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* 하단 그림자 */
+    z-index: 1000; /* 다른 요소들 위에 위치하도록 설정 */
+    display: flex; /* 플렉스 레이아웃 사용 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+}
+
+.Order-header h2 {
+    margin: 0;
+    text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+/* 결제 옵션 목록 스타일 */
+.payment-options {
+    list-style: none;
+    padding: 0;
+    border: 1px solid black; /* 검은 선으로 둘러싸기 */
+    border-radius: 5px;
+    background-color: #fff; /* 배경 색상 */
+    margin: 10px 0; /* 상하 여백 추가 */
+    padding: 10px; /* 패딩 추가 */
+}
+
+.payment-option {
+    padding: 15px;
+    margin-bottom: 10px; /* 항목 사이의 여백 */
+    background-color: #fff; /* 항목 배경색 */
+    border-radius: 13px; /* 모서리 둥글게 */
+    border: 1px solid rgb(222, 221, 221); /* 테두리 색상 */
+    box-shadow: none; /* 그림자 제거 */
+    min-height: 60px; /* 최소 높이 */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.payment-option-title {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+/* 체크 박스 스타일 */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid black;
+    background-color: #fff;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.checkbox.checked {
+    background-color: black;
+}
+
+.payment-option-label {
+    display: flex;
+    align-items: center;
+}
+
+/* 주문 완료 버튼 스타일 */
+.complete-order-button {
+    background-color: black; /* 배경색 */
+    color: #fff; /* 텍스트 색상 */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    position: fixed; /* 화면 하단에 고정 */
+    bottom: 30px; /* 화면 하단에서 30px 위로 설정 */
+    left: 50%; /* 화면 중앙에 위치 */
+    transform: translateX(-50%); /* 중앙 정렬 */
+    z-index: 1000; /* 다른 요소들 위에 위치하도록 설정 */
+}
+
+.complete-order-button:hover {
+    background-color: #333; /* 호버 시 색상 변경 */
+}

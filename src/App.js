@@ -1,8 +1,10 @@
+// App.js
 import React, { useRef, useState, useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import './App.css';
 import Detail from './Detail';
 import Cart from './Cart';
+import Order from './Order'; // 주문 페이지 임포트
 import sushi1 from './img/sushi.jpeg';
 import sushi2 from './img/sushi.jpeg';
 import sushi3 from './img/sushi.jpeg';
@@ -67,16 +69,13 @@ function App() {
   const sashimiRef = useRef(null);
 
   useEffect(() => {
-    if (location.pathname.includes("/detail") || location.pathname.includes("/cart")) {
+    const path = location.pathname;
+    if (path.includes("/detail") || path.includes("/cart") || path.includes("/order")) {
       setShowHeader(false);
     } else {
       setShowHeader(true);
     }
   }, [location]);
-
-  useEffect(() => {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  }, [cartItems]);
 
   const scrollToSection = (sectionRef) => {
     const offset = -100; // 원하는 오프셋 값을 설정하세요.
@@ -112,6 +111,12 @@ function App() {
     localStorage.setItem('cartItems', JSON.stringify(updatedCart)); // 로컬 저장소 업데이트
   };
 
+  const handleCompleteOrder = () => {
+    // 주문 완료 로직
+    handleClearCart();
+    navigate('/'); // 주문 완료 후 홈으로 리디렉션
+  };
+
   const cartItemCount = cartItems.length; // 장바구니 아이템 수
 
   return (
@@ -144,6 +149,7 @@ function App() {
         } />
         <Route path="/detail/:id" element={<Detail onAddToCart={handleAddToCart} />} />
         <Route path="/cart" element={<Cart cartItems={cartItems} onDeleteItem={handleDeleteItem} />} />
+        <Route path="/order" element={<Order cartItems={cartItems} onCompleteOrder={handleCompleteOrder} />} /> {/* 주문 페이지 추가 */}
       </Routes>
     </div>
   );
